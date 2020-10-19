@@ -1,0 +1,73 @@
+{
+
+    "id": "86C2B162-5D58-47A0-AC6D-FE6B73D4E0D4",
+    "name": "versoname",
+    "friendlyName": "Versoname - Version Number Generation ",
+    "description": "Generate a version by commit message history on repository",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "Augusto Mesquita",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 0
+    },
+        "visibility": [
+        "Build"
+    ],
+
+    "instanceNameFormat": "Retrieve version number",
+    "inputs": [
+        {
+            "name": "majorVersion",
+            "type": "number",
+            "label": "Base Major Version",
+            "defaultValue": "0",
+            "required": true,
+            "helpMarkDown": "It's a base major version, this is the base to calculate the version number"
+        }, {
+            "name": "minorVersion",
+            "type": "number",
+            "label": "Base Minor Version",
+            "defaultValue": "1",
+            "required": true,
+            "helpMarkDown": "It's a base minor version, this is the base to calculate the version number"
+        }, {
+            "name": "patchVersion",
+            "type": "number",
+            "label": "Base Patch Version",
+            "defaultValue": "0",
+            "required": true,
+            "helpMarkDown": "It's a base patch version, this is the base to calculate the version number"
+        }, {
+            "name": "versionNumberBumb",
+            "type": "string",
+            "label": "Version Number Bump Text",
+            "required": true,
+            "helpMarkDown": "It's a text to find on commit and executes a bump(increment) on major version"
+        }, {
+            "name": "workingDirectory",
+            "type": "string",
+            "label": "Working directory",
+            "required": true,
+            "helpMarkDown": "It's a git directory where it has all history commit to calculates the version number"
+        }, {
+            "name": "incrementMinorBranchRegex",
+            "type": "string",
+            "label": "Regex Text Increment Minor Number",
+            "required": true,
+            "helpMarkDown": "It's a regex to match on commit message and if it matches then increments minor number"
+        }, {
+            "name": "incrementPatchBranchRegex",
+            "type": "string",
+            "label": "Regex Text Increment Patch Number",
+            "required": true,
+            "helpMarkDown": "It's a regex to match on commit message and if it matches then increments patch number"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "task.js"
+        }
+    }
+}
